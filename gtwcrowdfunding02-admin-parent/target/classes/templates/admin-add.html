@@ -1,0 +1,58 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: GTerry
+  Date: 2020/11/5
+  Time: 22:27
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/bar::head"></head>
+
+<body>
+<nav th:replace="include/bar::nav"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="include/bar::sidebar"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ol class="breadcrumb">
+                <li><a href="admin/to/main/page.html">首页</a></li>
+                <li><a href="admin/page.html">数据列表</a></li>
+                <li class="active">新增</li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-heading">表单数据<div style="float:right;cursor:pointer;" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-question-sign"></i></div></div>
+                <div class="panel-body">
+                    <div>
+                        <span th:text="${exception?.message} eq null?'':${exception?.message}"></span>
+                    </div>
+                    <form role="form" action="admin/save.html" th:action="@{/admin/save.html}">
+                        <div class="form-group">
+                            <label for="inputAcct">登陆账号</label>
+                            <input type="text" class="form-control" id="inputAcct" name="loginAcct" placeholder="请输入登陆账号">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUserName">用户名称</label>
+                            <input type="text" class="form-control" id="inputUserName" name="userName" placeholder="请输入用户名称">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUserName">用户密码</label>
+                            <input type="text" class="form-control" id="inputPassword" name="userPswd" placeholder="请输入用户密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">邮箱地址</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="请输入邮箱地址">
+                            <p class="help-block label label-warning">请输入合法的邮箱地址, 格式为： xxxx@xxxx.com</p>
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> 新增</button>
+                        <button type="reset" class="btn btn-danger"><i class="glyphicon glyphicon-refresh"></i> 重置</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

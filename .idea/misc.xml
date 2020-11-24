@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/gtcrowdfunding06-common-reverse/pom.xml" />
+        <option value="$PROJECT_DIR$/gtcrowdfunding07-common-util/pom.xml" />
+        <option value="$PROJECT_DIR$/gtwcrowdfunding02-admin-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/gtwcrowdfunding05-member-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/gtwcrowdfunding04-common-util/pom.xml" />
+        <option value="$PROJECT_DIR$/gtwcrowdfunding03-common-reverse/pom.xml" />
+        <option value="$PROJECT_DIR$/pro01-short-message/pom.xml" />
+        <option value="$PROJECT_DIR$/pro02-AWS-S3/pom.xml" />
+        <option value="$PROJECT_DIR$/pro3-paypal/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/gtwcrowdfunding05-member-parent/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/gtwcrowdfunding06-member-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/gtwcrowdfunding07-member-entity/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_14" default="false" project-jdk-name="14" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

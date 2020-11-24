@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="untitled" />
+        <module name="pro02-AWS-S3" />
+        <module name="gtwcrowdfunding06-member-eureka" />
+        <module name="gtwcrowdfunding14-member-api" />
+        <module name="pro3-paypal" />
+        <module name="gtwcrowdfunding12-member-order-consumer" />
+        <module name="gtwcrowdfunding09-member-redis-provider" />
+        <module name="gtwcrowdfunding13-member-pay-consumer" />
+        <module name="gtwcrowdfunding15-member-gateway" />
+        <module name="gtwcrowdfunding10-authentication-consumer" />
+        <module name="pro01-short-message" />
+        <module name="gtwcrowdfunding02-admin-parent" />
+        <module name="gtwcrowdfunding04-common-util" />
+        <module name="gtwcrowdfunding10-member-authentication-consumer" />
+        <module name="gtwcrowdfunding07-member-entity" />
+        <module name="gtwcrowdfunding03-common-reverse" />
+        <module name="gtwcrowdfunding08-member-mysql-provider" />
+        <module name="gtwcrowdfunding11-member-project-consumer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gtwcrowdfunding03-admin-webui" target="11" />
+      <module name="gtwcrowdfunding04-admin-component" target="11" />
+      <module name="gtwcrowdfunding05-admin-entity" target="11" />
+      <module name="untitled" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gtwcrowdfunding02-admin-parent" options="-parameters" />
+      <module name="pro3-paypal" options="-parameters" />
+    </option>
+  </component>
+</project>

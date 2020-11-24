@@ -1,0 +1,20 @@
+server:
+  port: 4000
+spring:
+  application:
+    name: gtw-crowd-auth
+  redis:
+    host: 192.168.182.128
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+
+aws:
+  sns:
+    sms:
+      AWSAccessKeyId: "AKxxxxxxxxxxxxxxxxxx"
+      AWSSecretKeyId: "Kbxxxxxxxxxxxxxxxx"
+      sign: "GTW-Your Access code: "

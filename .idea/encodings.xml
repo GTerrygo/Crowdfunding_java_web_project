@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding02-admin-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding02-admin-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding06-member-eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding06-member-eureka/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding07-member-entity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding07-member-entity/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding08-member-mysql-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding08-member-mysql-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding09-member-redis-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding09-member-redis-provider/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding10-member-authentication-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding10-member-authentication-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding11-member-project-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding11-member-project-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding12-member-order-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding12-member-order-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding13-member-pay-consumer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding13-member-pay-consumer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding14-member-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding14-member-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding15-member-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/gtwcrowdfunding15-member-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gtwcrowdfunding05-member-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pro01-short-message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pro01-short-message/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pro02-AWS-S3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pro02-AWS-S3/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pro3-paypal/src/main/java" charset="UTF-8" />
+  </component>
+</project>

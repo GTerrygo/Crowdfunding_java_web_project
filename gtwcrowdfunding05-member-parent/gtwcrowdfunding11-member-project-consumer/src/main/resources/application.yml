@@ -1,0 +1,20 @@
+server:
+  port: 5000
+  servlet:
+    context-path: /project
+spring:
+  application:
+    name: gtw-crowd-project
+  redis:
+    host: 192.168.182.128
+  session:
+    store-type: redis
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+aws:
+  s3:
+    AWSAccessKeyId: "AKIAxxxxxxxxxxxxx"
+    AWSSecretKeyId: "g+fvxxxxxxxxxxxxxxxxxx"
+    bucketName: "xxxxxxxxxxxx"

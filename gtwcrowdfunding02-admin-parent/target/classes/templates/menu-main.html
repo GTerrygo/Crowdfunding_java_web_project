@@ -1,0 +1,287 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: GTerry
+  Date: 2020/11/6
+  Time: 0:29
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/bar::head"></head>
+<link rel="stylesheet" href="static/ztree/zTreeStyle.css" th:href="@{/static/ztree/zTreeStyle.css}">
+<script src="static/ztree/jquery.ztree.all-3.5.min.js" th:src="@{/static/ztree/jquery.ztree.all-3.5.min.js}"></script>
+<script type="text/javascript" charset="UTF-8" src="static/crowd/generateTree.js" th:src="@{/static/crowd/generateTree.js}"></script>
+
+<body>
+<!--menu-add-modal-->
+<div id="menuAddModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">尚筹网系统弹窗</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+                    请输入节点名称：<input type="text" name="name" /><br />
+                    请输入URL地址：<input type="text" name="url" /><br />
+                    <i class="glyphicon glyphicon-th-list"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-th-list" />&nbsp;
+
+                    <i class="glyphicon glyphicon-dashboard"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-dashboard" /> &nbsp;
+
+                    <i class="glyphicon glyphicon glyphicon-tasks"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon glyphicon-tasks" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-user" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-king"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-king" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-lock" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-ok" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-check"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-check" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-th-large"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-th-large" /> <br />
+
+                    <i class="glyphicon glyphicon-picture"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-picture" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-equalizer"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-equalizer" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-random"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-random" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-hdd"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-hdd" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-comment" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-list"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-list" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-tags"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-tags" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-list-alt" /> &nbsp;
+                    <br />
+
+                </div>
+                <div class="modal-footer">
+                    <button id="menuSaveBtn" type="button" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i> 保存</button>
+                    <button id="menuResetBtn" type="reset" class="btn btn-primary"><i class="glyphicon glyphicon-refresh"></i> 重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--menu-edit-modal-->
+<div id="menuEditModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">尚筹网系统弹窗</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+                    请输入节点名称：<input type="text" name="name" class="inputName"/><br />
+                    请输入URL地址：<input type="text" name="url" class="inputURL"/><br />
+                    <i class="glyphicon glyphicon-th-list"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-th-list" />&nbsp;
+
+                    <i class="glyphicon glyphicon-dashboard"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-dashboard" /> &nbsp;
+
+                    <i class="glyphicon glyphicon glyphicon-tasks"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon glyphicon-tasks" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-user" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-king"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-king" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-lock" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-ok"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-ok" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-check"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-check" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-th-large"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-th-large" /> <br />
+
+                    <i class="glyphicon glyphicon-picture"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-picture" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-equalizer"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-equalizer" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-random"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-random" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-hdd"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-hdd" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-comment" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-list"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-list" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-tags"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-tags" /> &nbsp;
+
+                    <i class="glyphicon glyphicon-list-alt"></i>
+                    <input type="radio" name="icon" value="glyphicon glyphicon-list-alt" /> &nbsp;
+                    <br />
+
+                </div>
+                <div class="modal-footer">
+                    <button id="menuEditBtn" type="button" class="btn btn-default"><i class="glyphicon glyphicon-edit"></i> 更新</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--menu-confirm-modal-->
+<div id="menuConfirmModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">尚筹网系统弹窗</h4>
+            </div>
+            <form>
+                <div class="modal-body">
+                    您真的要删除<span id="removeNodeSpan"></span>这个节点吗？
+                </div>
+                <div class="modal-footer">
+                    <button id="confirmBtn" type="button" class="btn btn-danger"><i class="glyphicon glyphicon-ok"></i> OK</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<nav th:replace="include/bar::nav"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="include/bar::sidebar"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="panel panel-default">
+                <div class="panel-heading"><i class="glyphicon glyphicon-th-list"></i> 权限菜单列表 <div style="float:right;cursor:pointer;" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-question-sign"></i></div></div>
+                <div class="panel-body">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    // 获取当前网址，如： http://localhost:8083/myproj/view/my.jsp
+    var curWwwPath=window.document.location.href;
+    //获取主机地址之后的目录，如： myproj/view/my.jsp
+    var pathName=window.document.location.pathname;
+    var pos=curWwwPath.indexOf(pathName);
+    //获取主机地址，如： http://localhost:8083
+    var localhostPaht=curWwwPath.substring(0,pos);
+    //获取带"/"的项目名，如：/myproj
+    var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+    //得到了 http://localhost:8083/myproj
+    var path=localhostPaht+projectName;
+
+    $(function () {
+        generateTree();
+    })
+
+    //Add menu element
+    $("#treeDemo").on("click",".menuAddBtn",function (){
+        window.id=this.id;
+        $("#menuAddModal").modal("show");
+        return false;
+    })
+    $("#menuSaveBtn").click(function (){
+        $.ajax({
+            url:path+"/menu/add.json",
+            type:"POST",
+            data:$("#menuAddModal form").serialize()+"&pid="+window.id,
+            success:function (result){
+                if(result.code==100){
+                    $("#menuAddModal").modal("hide");
+                    generateTree();
+                }else{
+                    $("#menuAddModal").modal("hide");
+                    alert("error");
+                }
+            }
+        })
+    })
+    //update menu
+    $("#treeDemo").on("click",".menuEditBtn",function (){
+        window.id=this.id;
+        $("#menuEditModal").modal("show");
+        var zTreeObj = $.fn.zTree.getZTreeObj("treeDemo");
+        var currentNode = zTreeObj.getNodeByParam("id",window.id);
+        $("#menuEditModal .inputName").val(currentNode.name);
+        $("#menuEditModal .inputURL").val(currentNode.url);
+        $("#menuEditModal [name=icon]").val([currentNode.icon]);
+        return false;
+    })
+    $("#menuEditBtn").click(function (){
+        $.ajax({
+            url:path+"/menu/edit.json",
+            type:"POST",
+            data:$("#menuEditModal form").serialize()+"&id="+window.id,
+            success:function (result){
+                if(result.code==100){
+                    $("#menuEditModal").modal("hide");
+                    generateTree();
+                }
+            }
+        })
+    })
+    // remove menu
+    $("#treeDemo").on("click",".menuRemoveBtn",function (){
+        window.id=this.id;
+        $("#menuConfirmModal").modal("show");
+        return false;
+    })
+    $("#confirmBtn").click(function (){
+        $.ajax({
+            url:path+"/menu/remove.json?id="+window.id,
+            type:"GET",
+            success:function (result){
+                if(result.code==100){
+                    $("#menuConfirmModal").modal("hide");
+                    generateTree();
+                }
+            }
+        })
+    })
+</script>
+</html>

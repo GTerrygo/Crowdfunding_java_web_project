@@ -1,0 +1,51 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: GTerry
+  Date: 2020/11/5
+  Time: 23:20
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/bar::head"></head>
+
+<body>
+<nav th:replace="include/bar::nav"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="include/bar::sidebar"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">数据列表</a></li>
+                <li class="active">修改</li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-heading">表单数据<div style="float:right;cursor:pointer;" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-question-sign"></i></div></div>
+                <div class="panel-body">
+                    <form role="form" th:action="@{/admin/edit.html(id=${admin.id},pageNum=${param.pageNum},keyword=${param.keyword})}" method="post">
+                        <div class="form-group">
+                            <label for="inputLoginAcct">登陆账号</label>
+                            <input type="text" class="form-control" id="inputLoginAcct" name="loginAcct" th:value=${admin.loginAcct}>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputUserName">用户名称</label>
+                            <input type="text" class="form-control" id="inputUserName" name="userName" th:value=${admin.userName}>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail">邮箱地址</label>
+                            <input type="email" class="form-control" id="inputEmail" name="email" th:value=${admin.email}>
+                            <p class="help-block label label-warning">请输入合法的邮箱地址, 格式为： xxxx@xxxx.com</p>
+                        </div>
+                        <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-edit"></i> 修改</button>
+                        <button type="reset" class="btn btn-danger"><i class="glyphicon glyphicon-refresh"></i> 重置</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

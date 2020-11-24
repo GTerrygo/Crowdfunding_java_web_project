@@ -1,0 +1,125 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: GTerry
+  Date: 2020/11/5
+  Time: 20:22
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/bar::head"></head>
+
+<body>
+<nav th:replace="include/bar::nav"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="include/bar::sidebar"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="glyphicon glyphicon-th"></i> 数据列表</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline" role="form" style="float:left;" th:action="@{/admin/page.html}" method="post">
+                        <div class="form-group has-feedback">
+                            <div class="input-group">
+                                <div class="input-group-addon">查询条件</div>
+                                <input class="form-control has-success" type="text" placeholder="请输入查询条件" name="keyword">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-search"></i> 查询</button>
+                    </form>
+                    <button type="button" class="btn btn-danger" style="float:right;margin-left:10px;"><i class=" glyphicon glyphicon-remove"></i> 删除</button>
+                    <a type="button" class="btn btn-primary" style="float:right;" th:href="@{/admin/to/add/page.html}"><i class="glyphicon glyphicon-plus"></i> 新增</a>
+                    <br>
+                    <hr style="clear:both;">
+                    <div class="table-responsive">
+                        <span th:if="${#request.getAttribute('pageInfo')==null}">not found</span>
+
+
+                            <table class="table table-bordered" th:if="${#request.getAttribute('pageInfo')!=null}">
+                                <thead>
+                                <tr >
+                                    <th width="30">#</th>
+                                    <th width="30"><input type="checkbox"></th>
+                                    <th>账号</th>
+                                    <th>名称</th>
+                                    <th>邮箱地址</th>
+                                    <th width="100">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr th:each="admin:${pageInfo.list}" >
+                                        <td th:text="${admin.id}"></td>
+                                        <td><input type="checkbox"></td>
+                                        <td th:text="${admin.loginAcct}"></td>
+                                        <td th:text="${admin.userName}"></td>
+                                        <td th:text="${admin.email}"></td>
+                                        <td>
+                                            <a href="admin/to/assign/role/page.html" th:href="@{/admin/to/assign/role/page.html}" class="btn btn-success btn-xs"><i class=" glyphicon glyphicon-check"></i></a>
+                                            <a href="admin/to/edit/page.html?id=${admin.id}&pageNum=${param.pageNum}&keyword=${param.keyword}"  th:href="@{/admin/to/edit/page.html(id=${admin.id},pageNum=${param.pageNum},keyword=${param.keyword})}"
+                                               class="btn btn-primary btn-xs"><i class=" glyphicon glyphicon-pencil"></i></a>
+                                            <a href="admin/delete.html?id=${admin.id}&pageNum=${param.pageNum}&keyword=${param.keyword}" th:href="@{/admin/delete.html(id=${admin.id},pageNum=${param.pageNum},keyword=${param.keyword})}"
+                                               class="btn btn-danger btn-xs"><i class=" glyphicon glyphicon-remove"></i></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                                <tfoot>
+                                <tr >
+                                    <td colspan="6" align="center">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a th:href="@{/admin/page.html(pageNum=1,keyword=${param.keyword})}">Top</a>
+                                            </li>
+
+
+                                                <li th:if="${pageInfo.hasPreviousPage}">
+                                                    <a th:href="@{/admin/page.html(pageNum=${(pageInfo.pageNum)-1},keyword=${param.keyword})}" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+
+
+<!--                                            <c:forEach items="${pageInfo.navigatepageNums}" var="page_Num">-->
+<!--                                                <c:if test="${page_Num==requestScope.pageInfo.pageNum}">-->
+<!--                                                    <li class="active"><a >${page_Num}</a></li>-->
+<!--                                                </c:if>-->
+<!--                                                <c:if test="${page_Num!=requestScope.pageInfo.pageNum}">-->
+<!--                                                    <li><a href="admin/page.html?pageNum=${page_Num}&keyword=${param.keyword}">${page_Num}</a></li>-->
+<!--                                                </c:if>-->
+<!--                                            </c:forEach>-->
+
+                                                <th:block th:each="page_Num:${pageInfo.navigatepageNums}">
+                                                    <li th:if="${page_Num} eq ${pageInfo.pageNum}" th:class="active"><a th:text="${page_Num}"></a></li>
+                                                     <li th:if="${page_Num} ne ${pageInfo.pageNum}">
+                                                        <a th:href="@{/admin/page.html(pageNum=${page_Num},keyword=${param.keyword})}" th:text="${page_Num}"></a>
+                                                     </li>
+                                                </th:block>
+
+                                                <li th:if="${pageInfo.hasNextPage}">
+                                                    <a th:href="@{/admin/page.html(pageNum=${pageInfo.pageNum+1},keyword=${param.keyword})}" aria-label="Previous">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+
+                                            <li>
+                                                <a th:href="@{/admin/page.html(pageNum=${pageInfo.pages},keyword=${param.keyword})}">tail</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+
+                                </tfoot>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

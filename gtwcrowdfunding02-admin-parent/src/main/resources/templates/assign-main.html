@@ -1,0 +1,75 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: GTerry
+  Date: 2020/11/6
+  Time: 1:12
+  To change this template use File | Settings | File Templates.
+-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="include/bar::head"></head>
+
+<body>
+<nav th:replace="include/bar::nav"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="include/bar::sidebar"></div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">数据列表</a></li>
+                <li class="active">分配角色</li>
+            </ol><div class="panel panel-default">
+            <div class="panel-body">
+                <form role="form" class="form-inline" th:action="@{/assign/role/save.html}" method="post">
+                    <input type="hidden" name="keyword" th:value="${param.keyword}"/>
+                    <input type="hidden" name="pageNum" th:value="${param.pageNum}"/>
+                    <input type="hidden" name="adminId" th:value="${param.adminId}"/>
+                    <div class="form-group">
+                        <label >未分配角色列表</label><br>
+                        <select class="form-control" multiple="" size="10" style="width:100px;overflow-y:auto;" >
+                            <th:block th:each="role:${unassignedRoleList}">
+                                <option th:value=${role?.id} th:text="${role?.roleName}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <ul>
+                            <li class="btn btn-default glyphicon glyphicon-chevron-right" id="toRight"></li>
+                            <br>
+                            <li class="btn btn-default glyphicon glyphicon-chevron-left" style="margin-top:20px;" id="toLeft"></li>
+                        </ul>
+                    </div>
+                    <div class="form-group" style="margin-left:40px;">
+                        <label >已分配角色列表</label><br>
+                        <select class="form-control" multiple="" size="10" style="width:100px;overflow-y:auto;"
+                                name="roleList">
+                            <th:block th:each="role:${assignedRoleList}" var="role">
+                                <option th:value="${role?.id}" th:text="${role?.roleName}"></option>
+                            </th:block>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" id="assignRole_btn"class="btn btn-primary btn-xs">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    $("#toRight").click(function (){
+        $("select:eq(0)>option:selected").appendTo($("select:eq(1)"))
+    })
+
+    $("#toLeft").click(function (){
+        $("select:eq(1)>option:selected").appendTo($("select:eq(0)"))
+    })
+    $("#assignRole_btn").click(function (){
+        $("select:eq(1)>option").prop("selected","selected");
+    })
+</script>
+</html>

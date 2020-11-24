@@ -1,0 +1,43 @@
+server:
+  port: 80
+spring:
+  application:
+    name: gtw-crowd-gateway
+  redis:
+    host: 192.168.182.128
+  session:
+    store-type: redis
+#  main:
+#     allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #Enable the function of dynamically creating routes from the registry and use the microservice name for routing
+      routes:
+        - id: project_page_routh
+          uri: lb://gtw-crowd-project
+          predicates:
+            - Path=/project/**
+        - id: project_order_routh
+          uri: lb://gtw-crowd-order
+          predicates:
+            - Path=/order/**
+        - id: portal_page_routh #payment_route    #Route ID, there is no fixed rule but unique
+#         uri: http://localhost:8001          #Routing address that provides services after matching
+          uri: lb://gtw-crowd-auth
+          predicates:
+            - Path=/**         # Assert, route if the path matches
+
+
+
+
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://localhost:1000/eureka
